@@ -2,7 +2,7 @@ pipeline {
     agent any 
     
     stages{
-        stage("Clone Code"){
+        stage("Clone Code") {
             steps {
                 echo "Cloning the code"
                 git url:"https://github.com/Vivek9120/django-notes-app.git", branch: "main"
@@ -11,7 +11,9 @@ pipeline {
         stage("Build"){
             steps {
                 echo "Building the image"
+                sh ""
                 sh "docker build -t my-note-app ."
+                
             }
         }
         stage("Push to Docker Hub"){
