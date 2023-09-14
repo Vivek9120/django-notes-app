@@ -11,7 +11,7 @@ pipeline {
         stage("Build"){
             steps {
                 echo "Building the image"
-                sh "sudo cp -r /mynotes/build /var/www/html"
+                sh "cp -r /mynotes/build /var/www/html"
                 sh "docker build -t my-note-app ."
                 
             }
