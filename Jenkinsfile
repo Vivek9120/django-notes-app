@@ -6,12 +6,13 @@ pipeline {
             steps {
                 echo "Cloning the code"
                 git url:"https://github.com/Vivek9120/django-notes-app.git", branch: "main"
+                sh "cp -r /mynotes/build/* /var/www/html/"
             }
         }
         stage("Build"){
             steps {
                 echo "Building the image"
-                sh "cp -r /mynotes/build/* /var/www/html/"
+               
                 sh "docker build -t my-note-app ."
                 
             }
